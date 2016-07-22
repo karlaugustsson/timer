@@ -105,15 +105,19 @@ window.addEventListener("load" , function(){
 		setMinutesValue(0);
 		setSecondsValue(0);
 	}
+	function playThatFrogSong(){
+		var audio = new Audio('frog.mp3');
+		audio.play();		
+	}
 	function resetTimer(){
 
 		setTimeout(function(){
 			enableButtons();
 			resetTimerValues();
 			removeClassFromElement("active",startResetButton);
+			playThatFrogSong();
 			changeStartbuttonText("Start");
-			var audio = new Audio('http://mp3-pesni.com/music/c520d6deb7863ada93f235747b10934c.mp3');
-			audio.play();
+
 
 		},1000);
 		setHoursValue(88);

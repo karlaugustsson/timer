@@ -1,0 +1,71 @@
+body{
+	background-color: #00bcd4;
+}
+#timer_container{
+	width: 400px;
+    height: 240px;
+    border: 1px solid black;
+    border-radius: 30px;
+    background-color: white;
+
+}
+.display{
+	width:250px;
+	height:60px;
+	padding: 0px 15px;
+	background-color: gray;
+	margin:30px auto;
+}
+@font-face {
+    font-family: digital;
+    src: url("./fonts/digital-7.ttf");
+}
+.display .output , .display span{
+	font-family: "digital";
+	font-size: 73px;
+	margin:0 auto;
+	color:#8bc34a;
+	display: inline-block;
+}
+.controls{
+	width: 320px;
+    margin-left: auto;
+}
+.controls .start{
+	width: 100px;
+    height: 100px;
+    background-color: #8BC34A;
+    border-radius: 100px;
+    cursor: pointer;
+}
+.controls .start.timer:hover{
+
+	background-color: #75c912;
+}
+.controls .start.active{
+background-color: red;
+color:white;
+}
+.controls .set{
+    width: 30px;
+    height: 30px;
+    background-color: #FF5722;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.controls .set.hours{
+	background-color: #FF5722;
+}
+.controls .set.minutes{
+	background-color:#ffc107;
+}
+.controls .set.seconds{
+	background-color: #00bcd4;
+}
+.blink_me {
+  animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {  
+  50% { opacity: 0.0; }
+}

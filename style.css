@@ -27,6 +27,9 @@ body{
 	color:#8bc34a;
 	display: inline-block;
 }
+.display.active .output , .display.active span{
+	color:#f44336;
+}
 .controls{
 	width: 320px;
     margin-left: auto;
@@ -41,6 +44,10 @@ body{
 .controls .start.timer:hover{
 
 	background-color: #75c912;
+}
+.controls .start.timer.active:hover{
+
+	background-color:#d00f01;
 }
 .controls .start.active{
 background-color: red;

@@ -8,7 +8,7 @@ window.addEventListener("load" , function(){
 	var maxMinutes = 59;
 	var maxSeconds = 59;
 	var maxHours = 23;
-	var audio = null;
+	var audio = new Audio();
 
 	var startResetButton = document.getElementsByClassName("start timer")[0];
 		startResetButton.addEventListener("click",startOrStopCountDown,false)
@@ -110,7 +110,7 @@ window.addEventListener("load" , function(){
 		changeStartbuttonText("stop");
 		removeBlink();
 		addClassToElement("active",startResetButton);
-		counterInterval = setInterval(decreaseSecondValue,200);
+		counterInterval = setInterval(decreaseSecondValue,10000);
 		
 	}
 	function decreaseSecondValue(){
@@ -190,16 +190,17 @@ window.addEventListener("load" , function(){
 		},120000);
 
 		alarmInterval = setInterval(function(){
-			makeElementBlink(secondsOutput);
-			makeElementBlink(minutesOutput);
-			makeElementBlink(hoursOutput);
+			turnOnAllTimerOutputs();
 			playThatFrogSong();
 		},30000);
-		makeElementBlink(secondsOutput);
-		makeElementBlink(minutesOutput);
-		makeElementBlink(hoursOutput);
+		turnOnAllTimerOutputs();
 		playThatFrogSong();
 		addClassToElement("active",display);
+	}
+	function turnOnAllTimerOutputs(){
+		makeElementBlink(secondsOutput);
+		makeElementBlink(minutesOutput);
+		makeElementBlink(hoursOutput);	
 	}
 	function stopAlarm(){
 		removeClassFromElement("active",display);

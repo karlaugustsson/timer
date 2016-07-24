@@ -70,7 +70,7 @@ window.addEventListener("load" , function(){
 	}
 	function makeElementBlink(el){
 		addClassToElement("blink_me",el);
-		setTimeout(function(){removeClassFromElement("blink_me",el);},30000);
+		
 	}
 	function removeBlink(){
 		var blinkingElements = document.getElementsByClassName("blink_me");
@@ -92,6 +92,12 @@ window.addEventListener("load" , function(){
 	function getHoursValue(){
 		return parseInt(hoursOutput.innerHTML);
 	}
+	function isTimerSet(){
+		if(getSecondsValue() > 0 || getMinutesValue() > 0 || getHoursValue() > 0){
+			return true;
+		}
+		return false;
+	}
 	function setMinutesValue(value){
 
 		value = addZeroBeforeIfLessThanTen(value);
@@ -106,14 +112,17 @@ window.addEventListener("load" , function(){
 		hoursOutput.innerHTML = value;
 	}
 	function startTimer(){
+		if(!isTimerSet()){
+			return ;
+		}
 		disableButtons();
-		changeStartbuttonText("stop");
+		changeStartbuttonText("Stop");
 		removeBlink();
 		addClassToElement("active",startResetButton);
-		counterInterval = setInterval(decreaseSecondValue,10000);
+		counterInterval = setInterval(decreaseCounter,1000);
 		
 	}
-	function decreaseSecondValue(){
+	function decreaseCounter(){
 
 		var secondsValue = getSecondsValue() -1;
 		var hourValue = getHoursValue();
@@ -195,6 +204,7 @@ window.addEventListener("load" , function(){
 		},30000);
 		turnOnAllTimerOutputs();
 		playThatFrogSong();
+		changeStartbuttonText("make it stop");
 		addClassToElement("active",display);
 	}
 	function turnOnAllTimerOutputs(){

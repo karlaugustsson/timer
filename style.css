@@ -35,6 +35,7 @@ body{
     margin-left: auto;
 }
 .controls .start{
+	font-size: 26px;
 	width: 100px;
     height: 100px;
     background-color: #8BC34A;
@@ -42,7 +43,7 @@ body{
     cursor: pointer;
 }
 .controls .start.timer:hover{
-
+	
 	background-color: #75c912;
 }
 .controls .start.timer.active:hover{
@@ -50,6 +51,7 @@ body{
 	background-color:#d00f01;
 }
 .controls .start.active{
+
 background-color: red;
 color:white;
 }
